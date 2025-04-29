@@ -5,15 +5,15 @@ public class Main {
         TicketGeneral ticketGeneral = new TicketGeneral("TG1", 100.0, "2025-04-29");
         TicketVIP ticketVIP = new TicketVIP("TV1", 200.0, "2025-04-29", "Acceso rápido");
 
-        Visitante visitante1 = new Visitante("Juan", "12345678", 25, ticketGeneral);
-        Visitante visitante2 = new Visitante("Ana", "87654321", 30, ticketVIP);
+        Visitante visitante1 = new Visitante("Manuel", "96092745", 27, ticketGeneral);
+        Visitante visitante2 = new Visitante("Rossalis", "96095745", 28, ticketVIP);
 
         visitante1.agregarEntrada(new Entrada("2025-04-29", "10:00"));
         visitante2.agregarEntrada(new Entrada("2025-04-29", "10:30"));
 
-        Atraccion mecanica = new AtraccionMecanica("Montaña Rusa", 5);
-        Atraccion acuatica = new AtraccionAcuatica("Splash", 3);
-        Atraccion infantil = new AtraccionInfantil("Carrusel", 2);
+        Atraccion mecanica = new AtraccionMecanica("carrucel", 5);
+        Atraccion acuatica = new AtraccionAcuatica("barco pirata", 3);
+        Atraccion infantil = new AtraccionInfantil("carritos chocones", 2);
 
         mecanica.setVisitantesEnCola(10);
         acuatica.setVisitantesEnCola(5);
@@ -24,18 +24,18 @@ public class Main {
         acuatica.agregarHorario(h1);
         infantil.agregarHorario(h1);
 
-        Tecnico tecnico1 = new Tecnico("Carlos", "Electrónica");
+        Tecnico tecnico1 = new Tecnico("Hernan", "Electrónica y reparaciones manuales");
         mecanica.agregarTecnico(tecnico1);
 
-        Mantenimiento mantenimiento = new Mantenimiento("2025-04-30", "Chequeo preventivo");
+        Mantenimiento mantenimiento = new Mantenimiento("2025-04-30", "revision preventiva");
         mecanica.agregarMantenimiento(mantenimiento);
 
-        EmpleadoSeguridad emp = new EmpleadoSeguridad("Luis");
+        EmpleadoSeguridad emp = new EmpleadoSeguridad("pedro");
         emp.agregarEspecialidad("Primeros Auxilios");
         emp.agregarEspecialidad("Evacuación");
 
-        Incidente incidente1 = new Incidente("2025-04-29", "Caída menor", EstadoIncidente.REPORTADO, mecanica, visitante1);
-        Incidente incidente2 = new Incidente("2025-04-29", "Molestia con agua", EstadoIncidente.RESUELTO, acuatica, visitante2);
+        Incidente incidente1 = new Incidente("2025-04-29", "golpe y fractura", EstadoIncidente.REPORTADO, mecanica, visitante1);
+        Incidente incidente2 = new Incidente("2025-04-29", "Mareos y vomitos", EstadoIncidente.RESUELTO, acuatica, visitante2);
 
         emp.agregarIncidente(incidente1);
         emp.agregarIncidente(incidente2);
@@ -44,13 +44,13 @@ public class Main {
         reporte.agregarIncidente(incidente1);
         reporte.agregarIncidente(incidente2);
 
-        Parque parque = new Parque("Diversiones SA", "Calle Falsa 123", "09:00", "18:00");
+        Parque parque = new Parque("PARQUE MORTAL 4 SA", "SAN MARTIN 1285", "09:00", "18:00");
         parque.agregarAtraccion(mecanica);
         parque.agregarAtraccion(acuatica);
         parque.agregarAtraccion(infantil);
 
         Atraccion masVisitada = parque.obtenerAtraccionMasVisitada();
-        System.out.println("Atracción más visitada: " + masVisitada.getNombre());
+        System.out.println("LA ATRACCION MAS USADA FRECUENTEMENTE ES: " + masVisitada.getNombre());
 
         emp.mostrarIncidentesReportados();
     }
